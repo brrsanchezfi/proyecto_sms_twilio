@@ -1,4 +1,3 @@
-```markdown
 # Proyecto Guiado: Alertas SMS con Airflow
 
 ![Miniatura](miniatura.jpeg)
