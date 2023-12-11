@@ -5,14 +5,17 @@ from googleapiclient.discovery import build
 from airflow.operators.python_operator import PythonOperator
 from twilio.rest import Client
 
-import logging
-from decouple import Config, RepositoryEnv
+import os
 
-config_path = '/home/roberto/Desktop/proyecto_sms_twilio/.venv'
-config = Config(RepositoryEnv(config_path)) 
+import logging
 
 import pendulum
 import pprint
+
+API_KEY_YOUTUBE='AIzaSyCgKXm552fgPXteo0grv9GWxtOAR5ll9w0'
+CHANNEL_ID='UCPF-oYb2-xN5FbCXy0167Gg'
+ACCOUNT_SID='AC62829ecb7cfc9c649d98f53e1999b789'
+AUTH_TOKEN='5a150e7cc1320119cf50ef4870e9bdbe'
 
 default_args={
     'owner':'Roberto',
@@ -32,8 +35,8 @@ dag = DAG(
 
 def obtener_ultimo_video():
     
-    api_key_youtube=config('API_KEY_YOUTUBE')
-    channel_id = config('CHANNEL_ID')
+    api_key_youtube=API_KEY_YOUTUBE
+    channel_id = CHANNEL_ID
 
     youtube_request = build('youtube','v3',developerKey=api_key_youtube)
 
@@ -88,8 +91,9 @@ def enviar_sms(**kwargs):
 
     if ultimo_video!=None:
             
-        account_sid = config('ACCOUNT_SID')
-        auth_token = config('AUTH_TOKEN')
+        account_sid = ACCOUNT_SID
+        auth_token = AUTH_TOKEN
+        
         client = Client(account_sid, auth_token)
 
         message = client.messages.create(
