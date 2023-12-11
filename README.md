@@ -3,9 +3,9 @@
 ![Miniatura](miniatura.jpeg)
 
 <p align="center">
-  <img src="https://en.m.wikipedia.org/wiki/File:AirflowLogo.png" alt="Airflow Logo" width="100" height="100">
-  <img src="https://en.m.wikipedia.org/wiki/File:Amazon_Web_Services_Logo.svg" alt="AWS Logo" width="100" height="100">
-  <img src="https://es.m.wikipedia.org/wiki/Archivo:Twilio-logo-red.svg" alt="Twilio Logo" width="100" height="100">
+  <img src="[https://en.m.wikipedia.org/wiki/File:AirflowLogo.png](https://upload.wikimedia.org/wikipedia/commons/d/de/AirflowLogo.png)" alt="Airflow Logo" width="100" height="100">
+  <img src="[https://en.m.wikipedia.org/wiki/File:Amazon_Web_Services_Logo.svg](https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg)" alt="AWS Logo" width="100" height="100">
+  <img src="[https://es.m.wikipedia.org/wiki/Archivo:Twilio-logo-red.svg](https://upload.wikimedia.org/wikipedia/commons/7/7e/Twilio-logo-red.svg)" alt="Twilio Logo" width="100" height="100">
 </p>
 
 
@@ -48,7 +48,8 @@ pip install -r requirements.txt
 ### Paso 4: Ejecutar el Proyecto
 
 ```bash
-python main.py
+airflow webserver -D
+airflow scheduler -D
 ```
 
 ## Contribuciones
